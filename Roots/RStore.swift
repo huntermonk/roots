@@ -9,19 +9,44 @@
 import Foundation
 
 public enum Department: String {
-    case Mens = "MENS"
-    case Womens = "WOMENS"
-    case Kids = "KIDS"
-    case Misc = "MISC"
+    case Mens = "mens"
+    case Womens = "womens"
+    case Kids = "kids"
+    case Misc = "misc"
 }
 
-struct RStore {
+class RStore {
     
-    static let mensStores:[String] = ["GUCCI", "HERMES", "BURBERRY"]
-    static let womensStores:[String] = ["NASTY GAL", "URBAN O", "FREE-PEOPLE", "B. REPUBLIC", "ZARA"]
+    static let sharedInstance = RStore()
     
-    static let kidsStores:[String] = mensStores + womensStores
+    var mensStores:[String] = []
+    var womensStores:[String] = []
+    var kidsStores:[String] = []
+    var miscStores:[String] = []
     
-    static let miscStores:[String] = ["LOUIS VUITTON"] + kidsStores
+    func retrieveStores() {
+        let query = PFQuery(className: "store")
+        query.findObjectsInBackgroundWithBlock {
+            (results, error) -> Void in
+            if results != nil {
+                for result in results! {
+                    
+                    if let departments = result["department"] as? [String], name = result["name"] as? String {
+                        for dept in departments {
+                            
+                            switch dept {
+                            case Department.Mens.rawValue: self.mensStores = self.mensStores + [name]; break
+                            case Department.Womens.rawValue: self.womensStores = self.womensStores + [name]; break
+                            case Department.Kids.rawValue: self.kidsStores = self.kidsStores + [name]; break
+                            case Department.Misc.rawValue: self.miscStores = self.miscStores + [name]; break
+                            default: break
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
     
 }

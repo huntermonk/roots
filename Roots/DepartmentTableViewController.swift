@@ -16,6 +16,7 @@ class DepartmentTableViewController: UITableViewController {
         super.viewDidLoad()
         clearsSelectionOnViewWillAppear = true
         tableView.reloadData()
+        RStore.sharedInstance.retrieveStores()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -46,17 +47,17 @@ class DepartmentTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let stores:[String]!
+        let dept:Department!
         
         switch indexPath.row {
-        case 0: stores = RStore.mensStores; break
-        case 1: stores = RStore.womensStores; break
-        case 2: stores = RStore.kidsStores; break
-        case 3: stores = RStore.miscStores; break
-        default: stores = []; break
+        case 0: dept = Department.Mens; break
+        case 1: dept = Department.Womens; break
+        case 2: dept = Department.Kids; break
+        case 3: dept = Department.Misc; break
+        default: dept = Department.Mens; break
         }
         
-        self.navigationController!.pushViewController(StoreTableViewController.instantiateFromStoryboard(stores), animated: true)
+        self.navigationController!.pushViewController(StoreTableViewController.instantiateFromStoryboard(dept.rawValue), animated: true)
     }
 
     /*

@@ -11,20 +11,30 @@ import UIKit
 class StoreTableViewController: UITableViewController {
     
     var stores:[String] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+    var department:Department.RawValue!
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBarHidden = false
+        
+        setStoresDepartment()
         tableView.reloadData()
     }
     
-    class func instantiateFromStoryboard(dept:[String]) -> StoreTableViewController {
+    func setStoresDepartment() {
+        
+        switch department {
+        case Department.Mens.rawValue: stores = RStore.sharedInstance.mensStores; break
+        case Department.Womens.rawValue: stores = RStore.sharedInstance.womensStores; break
+        case Department.Kids.rawValue: stores = RStore.sharedInstance.kidsStores; break
+        case Department.Misc.rawValue: stores = RStore.sharedInstance.miscStores; break
+        default: break
+        }
+        
+    }
+    
+    class func instantiateFromStoryboard(dept:String) -> StoreTableViewController {
         let controller = UIStoryboard(name: "StoreTableViewController", bundle: nil).instantiateInitialViewController() as! StoreTableViewController
-        controller.stores = dept
+        controller.department = dept
         return controller
     }
 
@@ -56,7 +66,7 @@ class StoreTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         
-        cell.textLabel?.text = stores[indexPath.row]
+        cell.textLabel?.text = stores[indexPath.row].uppercaseString
         
         return cell
     }
