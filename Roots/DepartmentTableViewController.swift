@@ -14,7 +14,7 @@ class DepartmentTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        clearsSelectionOnViewWillAppear = false
+        clearsSelectionOnViewWillAppear = true
         tableView.reloadData()
     }
     
@@ -39,13 +39,24 @@ class DepartmentTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-        cell.textLabel?.text = departments[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! DepartmentTableViewCell
+        cell.title.text = departments[indexPath.row]
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.navigationController!.pushViewController(StoreTableViewController.instantiateFromStoryboard(RStore.mensStores), animated: true)
+        
+        let stores:[String]!
+        
+        switch indexPath.row {
+        case 0: stores = RStore.mensStores; break
+        case 1: stores = RStore.womensStores; break
+        case 2: stores = RStore.kidsStores; break
+        case 3: stores = RStore.miscStores; break
+        default: stores = []; break
+        }
+        
+        self.navigationController!.pushViewController(StoreTableViewController.instantiateFromStoryboard(stores), animated: true)
     }
 
     /*

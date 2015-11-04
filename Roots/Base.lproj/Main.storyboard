@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--ROOTS-->
@@ -15,15 +16,33 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="N5Q-kq-DZA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="N5Q-kq-DZA" customClass="DepartmentTableViewCell" customModule="Roots" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N5Q-kq-DZA" id="DE8-pB-eik">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="izV-H2-Zvj">
+                                            <rect key="frame" x="8" y="8" width="584" height="27"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="topMargin" secondItem="izV-H2-Zvj" secondAttribute="top" id="7Zy-PQ-wJG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="izV-H2-Zvj" secondAttribute="bottom" id="7km-P0-5oE"/>
+                                        <constraint firstItem="izV-H2-Zvj" firstAttribute="leading" secondItem="DE8-pB-eik" secondAttribute="leadingMargin" id="bs5-U4-Acf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="izV-H2-Zvj" secondAttribute="trailing" id="ofA-eo-K1C"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="title" destination="izV-H2-Zvj" id="hhK-2x-fL9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -31,7 +50,7 @@
                             <outlet property="delegate" destination="547-eX-eEz" id="D9A-6Y-0tZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="LOo-1J-S2n"/>
+                    <navigationItem key="navigationItem" title="Departments" id="LOo-1J-S2n"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbA-Qd-gJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

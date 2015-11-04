@@ -9,10 +9,10 @@
 import Foundation
 
 public enum Department: String {
-    case Mens = "mens"
-    case Womens = "womens"
-    case Kids = "kids"
-    case Misc = "miscellaneous"
+    case Mens = "MENS"
+    case Womens = "WOMENS"
+    case Kids = "KIDS"
+    case Misc = "MISC"
 }
 
 struct RStore {
