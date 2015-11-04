@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		655FC6621BE9816D0013E2CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6611BE9816D0013E2CE /* AppDelegate.swift */; };
-		655FC6641BE9816D0013E2CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6631BE9816D0013E2CE /* ViewController.swift */; };
 		655FC6671BE9816D0013E2CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655FC6651BE9816D0013E2CE /* Main.storyboard */; };
 		655FC6691BE9816D0013E2CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655FC6681BE9816D0013E2CE /* Assets.xcassets */; };
 		655FC66C1BE9816D0013E2CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655FC66A1BE9816D0013E2CE /* LaunchScreen.storyboard */; };
 		655FC6771BE9816D0013E2CE /* RootsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6761BE9816D0013E2CE /* RootsTests.swift */; };
 		655FC6821BE9816D0013E2CE /* RootsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6811BE9816D0013E2CE /* RootsUITests.swift */; };
+		655FC6911BE982230013E2CE /* DepartmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6901BE982230013E2CE /* DepartmentTableViewController.swift */; };
+		655FC6931BE986390013E2CE /* StoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6921BE986390013E2CE /* StoreTableViewController.swift */; };
+		655FC6971BE987960013E2CE /* StoreTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655FC6961BE987960013E2CE /* StoreTableViewController.storyboard */; };
+		655FC69A1BE98AFD0013E2CE /* RStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6991BE98AFD0013E2CE /* RStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,6 @@
 /* Begin PBXFileReference section */
 		655FC65E1BE9816D0013E2CE /* Roots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		655FC6611BE9816D0013E2CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		655FC6631BE9816D0013E2CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		655FC6661BE9816D0013E2CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		655FC6681BE9816D0013E2CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		655FC66B1BE9816D0013E2CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		655FC67D1BE9816D0013E2CE /* RootsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RootsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		655FC6811BE9816D0013E2CE /* RootsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootsUITests.swift; sourceTree = "<group>"; };
 		655FC6831BE9816D0013E2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		655FC6901BE982230013E2CE /* DepartmentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewController.swift; sourceTree = "<group>"; };
+		655FC6921BE986390013E2CE /* StoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewController.swift; sourceTree = "<group>"; };
+		655FC6961BE987960013E2CE /* StoreTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoreTableViewController.storyboard; sourceTree = "<group>"; };
+		655FC6991BE98AFD0013E2CE /* RStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				655FC6611BE9816D0013E2CE /* AppDelegate.swift */,
-				655FC6631BE9816D0013E2CE /* ViewController.swift */,
 				655FC6651BE9816D0013E2CE /* Main.storyboard */,
+				655FC6901BE982230013E2CE /* DepartmentTableViewController.swift */,
+				655FC6981BE98AB10013E2CE /* StoreTableViewController */,
 				655FC6681BE9816D0013E2CE /* Assets.xcassets */,
 				655FC66A1BE9816D0013E2CE /* LaunchScreen.storyboard */,
 				655FC66D1BE9816D0013E2CE /* Info.plist */,
@@ -125,6 +132,16 @@
 			path = RootsUITests;
 			sourceTree = "<group>";
 		};
+		655FC6981BE98AB10013E2CE /* StoreTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				655FC6921BE986390013E2CE /* StoreTableViewController.swift */,
+				655FC6991BE98AFD0013E2CE /* RStore.swift */,
+				655FC6961BE987960013E2CE /* StoreTableViewController.storyboard */,
+			);
+			name = StoreTableViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +152,7 @@
 				655FC65A1BE9816D0013E2CE /* Sources */,
 				655FC65B1BE9816D0013E2CE /* Frameworks */,
 				655FC65C1BE9816D0013E2CE /* Resources */,
+				655FC68F1BE981B40013E2CE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -231,6 +249,7 @@
 			files = (
 				655FC66C1BE9816D0013E2CE /* LaunchScreen.storyboard in Resources */,
 				655FC6691BE9816D0013E2CE /* Assets.xcassets in Resources */,
+				655FC6971BE987960013E2CE /* StoreTableViewController.storyboard in Resources */,
 				655FC6671BE9816D0013E2CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +270,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		655FC68F1BE981B40013E2CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		655FC65A1BE9816D0013E2CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				655FC6641BE9816D0013E2CE /* ViewController.swift in Sources */,
+				655FC6911BE982230013E2CE /* DepartmentTableViewController.swift in Sources */,
 				655FC6621BE9816D0013E2CE /* AppDelegate.swift in Sources */,
+				655FC69A1BE98AFD0013E2CE /* RStore.swift in Sources */,
+				655FC6931BE986390013E2CE /* StoreTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
