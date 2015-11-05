@@ -16,7 +16,7 @@ public enum Department: String {
 }
 
 protocol RStoreDelegate{
-    func updateStores()
+    func displayStores(stores:[String])
 }
 
 class RStore {
@@ -24,6 +24,8 @@ class RStore {
     var delegate:RStoreDelegate?
     
     static let sharedInstance = RStore()
+    
+    var selectedDepartment:Department.RawValue!
     
     var mensStores:[String] = []
     var womensStores:[String] = []
@@ -35,6 +37,24 @@ class RStore {
         womensStores = []
         kidsStores = []
         miscStores = []
+    }
+    
+    func updateStores() {
+        
+        if self.delegate != nil && self.selectedDepartment != nil {
+            
+            switch self.selectedDepartment {
+                
+            case Department.Mens.rawValue: self.delegate?.displayStores(self.mensStores); break
+            case Department.Womens.rawValue: self.delegate?.displayStores(self.womensStores); break
+            case Department.Kids.rawValue: self.delegate?.displayStores(self.kidsStores); break
+            case Department.Misc.rawValue: self.delegate?.displayStores(self.miscStores); break
+            default: break
+                
+            }
+            
+        }
+        
     }
     
     func retrieveStores() {
@@ -58,14 +78,14 @@ class RStore {
                             case Department.Misc.rawValue: self.miscStores = self.miscStores + [name]; break
                             default: break
                             }
+                            
                         }
                     }
                 }
             }
             
-            if self.delegate != nil {
-                self.delegate?.updateStores()
-            }
+            self.updateStores()
+            
         }
     }
     

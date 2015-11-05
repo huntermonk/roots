@@ -47,18 +47,16 @@ class DepartmentTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let dept:Department!
-        
+                
         switch indexPath.row {
-        case 0: dept = Department.Mens; break
-        case 1: dept = Department.Womens; break
-        case 2: dept = Department.Kids; break
-        case 3: dept = Department.Misc; break
-        default: dept = Department.Mens; break
+        case 0: RStore.sharedInstance.selectedDepartment = Department.Mens.rawValue; break
+        case 1: RStore.sharedInstance.selectedDepartment = Department.Womens.rawValue; break
+        case 2: RStore.sharedInstance.selectedDepartment = Department.Kids.rawValue; break
+        case 3: RStore.sharedInstance.selectedDepartment = Department.Misc.rawValue; break
+        default: RStore.sharedInstance.selectedDepartment = Department.Mens.rawValue; break
         }
         
-        self.navigationController!.pushViewController(StoreTableViewController.instantiateFromStoryboard(dept.rawValue), animated: true)
+        self.navigationController!.pushViewController(StoreTableViewController.instantiateFromStoryboard(), animated: true)
     }
 
     /*

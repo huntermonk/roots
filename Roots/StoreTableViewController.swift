@@ -17,38 +17,26 @@ class StoreTableViewController: UITableViewController, RStoreDelegate {
     var stores:[String] = []
     var department:Department.RawValue!
     
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         RStore.sharedInstance.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBarHidden = false
-        
-        updateStores()
+        RStore.sharedInstance.updateStores()
     }
     
-    func setStoresDepartment() {
-        
-        switch department {
-        case Department.Mens.rawValue: stores = RStore.sharedInstance.mensStores; break
-        case Department.Womens.rawValue: stores = RStore.sharedInstance.womensStores; break
-        case Department.Kids.rawValue: stores = RStore.sharedInstance.kidsStores; break
-        case Department.Misc.rawValue: stores = RStore.sharedInstance.miscStores; break
-        default: break
-        }
-        
-    }
-    
-    class func instantiateFromStoryboard(dept:String) -> StoreTableViewController {
-        let controller = UIStoryboard(name: "StoreTableViewController", bundle: nil).instantiateInitialViewController() as! StoreTableViewController
-        controller.department = dept
-        return controller
+    class func instantiateFromStoryboard() -> StoreTableViewController {
+        return UIStoryboard(name: "StoreTableViewController", bundle: nil).instantiateInitialViewController() as! StoreTableViewController
     }
     
     // MARK: - RStore Delegate Methods
     
-    func updateStores() {
-        setStoresDepartment()
+    func displayStores(argumentStores:[String]) {
+        stores = argumentStores
+        
         tableView.reloadData()
         if refreshControl != nil {
             refreshControl!.endRefreshing()
