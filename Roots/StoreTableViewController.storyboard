@@ -31,6 +31,13 @@
                             <outlet property="delegate" destination="CdQ-JB-ZPW" id="VaX-2b-jAI"/>
                         </connections>
                     </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="vwb-tX-Ibv">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <connections>
+                            <action selector="pulledToRefresh:" destination="CdQ-JB-ZPW" eventType="valueChanged" id="VZz-Tr-ZRu"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hte-5g-eYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

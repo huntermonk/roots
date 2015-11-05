@@ -15,7 +15,13 @@ public enum Department: String {
     case Misc = "misc"
 }
 
+protocol RStoreDelegate{
+    func updateStores()
+}
+
 class RStore {
+    
+    var delegate:RStoreDelegate?
     
     static let sharedInstance = RStore()
     
@@ -24,11 +30,22 @@ class RStore {
     var kidsStores:[String] = []
     var miscStores:[String] = []
     
+    func resetStores() {
+        mensStores = []
+        womensStores = []
+        kidsStores = []
+        miscStores = []
+    }
+    
     func retrieveStores() {
         let query = PFQuery(className: "store")
         query.findObjectsInBackgroundWithBlock {
             (results, error) -> Void in
+            
             if results != nil {
+                
+                self.resetStores()
+                
                 for result in results! {
                     
                     if let departments = result["department"] as? [String], name = result["name"] as? String {
@@ -41,10 +58,13 @@ class RStore {
                             case Department.Misc.rawValue: self.miscStores = self.miscStores + [name]; break
                             default: break
                             }
-                            
                         }
                     }
                 }
+            }
+            
+            if self.delegate != nil {
+                self.delegate?.updateStores()
             }
         }
     }

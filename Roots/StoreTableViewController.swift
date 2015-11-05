@@ -8,16 +8,23 @@
 
 import UIKit
 
-class StoreTableViewController: UITableViewController {
+class StoreTableViewController: UITableViewController, RStoreDelegate {
     
+    @IBAction func pulledToRefresh(sender: UIRefreshControl) {
+        RStore.sharedInstance.retrieveStores()
+    }
+
     var stores:[String] = []
     var department:Department.RawValue!
+    
+    override func viewDidLoad() {
+        RStore.sharedInstance.delegate = self
+    }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBarHidden = false
         
-        setStoresDepartment()
-        tableView.reloadData()
+        updateStores()
     }
     
     func setStoresDepartment() {
@@ -37,6 +44,16 @@ class StoreTableViewController: UITableViewController {
         controller.department = dept
         return controller
     }
+    
+    // MARK: - RStore Delegate Methods
+    
+    func updateStores() {
+        setStoresDepartment()
+        tableView.reloadData()
+        if refreshControl != nil {
+            refreshControl!.endRefreshing()
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -48,13 +65,20 @@ class StoreTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         //___ Equally divides the screen
         
+        var cellHeight:CGFloat!
+        
         if navigationController?.navigationBarHidden == true {
-            return tableView.frame.height / CGFloat(stores.count)
+            cellHeight = tableView.frame.height / CGFloat(stores.count)
         } else {
             let navigationHeight = self.navigationController!.navigationBar.frame.height
-            return (tableView.frame.height - navigationHeight) / CGFloat(stores.count)
+            cellHeight = (tableView.frame.height - navigationHeight) / CGFloat(stores.count)
         }
         
+        if cellHeight < 44 {
+            cellHeight = 44
+        }
+        
+        return cellHeight
         
     }
 

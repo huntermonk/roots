@@ -253,6 +253,7 @@
 				TargetAttributes = {
 					655FC65D1BE9816D0013E2CE = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = D8N257P9J2;
 					};
 					655FC6711BE9816D0013E2CE = {
 						CreatedOnToolsVersion = 7.1;
@@ -512,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Roots/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HunterMaximillionMonk.Roots;
@@ -527,6 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Roots/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HunterMaximillionMonk.Roots;
