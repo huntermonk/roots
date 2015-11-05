@@ -27,10 +27,14 @@ class RStore {
     
     var selectedDepartment:Department.RawValue!
     
+    var parseStoreResults:[PFObject] = []
+    
     var mensStores:[String] = []
     var womensStores:[String] = []
     var kidsStores:[String] = []
     var miscStores:[String] = []
+    
+    // MARK: - Store Methods
     
     func resetStores() {
         mensStores = []
@@ -64,6 +68,8 @@ class RStore {
             
             if results != nil {
                 
+                self.parseStoreResults = results!
+                
                 self.resetStores()
                 
                 for result in results! {
@@ -87,6 +93,18 @@ class RStore {
             self.updateStores()
             
         }
+    }
+    
+    // MARK: - Event Methods
+    
+    func initiateRetrieveEvents(storeName:String) {
+        for store in parseStoreResults {
+            if let name = store["name"] as? String where name.uppercaseString == storeName {
+                REvent.sharedInstance.retrieveEvents(store)
+            }
+            
+        }
+        
     }
     
 }

@@ -82,5 +82,21 @@ class StoreTableViewController: UITableViewController, RStoreDelegate {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            print("here")
+            RStore.sharedInstance.initiateRetrieveEvents(cell.textLabel!.text!)
+        }
+        
+        navigationController?.pushViewController(EventTableViewController.instantiateFromStoryboard(), animated: true)
+    }
 
 }
+
+
+
+
+
+
+
