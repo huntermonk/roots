@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		182F4921FB2B1E9CED98CAB5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21871CC21D02689AB4E5BBA1 /* libPods.a */; };
 		652AC6381C1B73390033F9D2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652AC6371C1B73390033F9D2 /* Login.storyboard */; };
-		652AC63A1C1B75350033F9D2 /* fireworks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 652AC6391C1B75350033F9D2 /* fireworks.mp4 */; };
 		652AC63C1C1B755C0033F9D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652AC63B1C1B755C0033F9D2 /* LoginViewController.swift */; };
 		65428C611BEC073900CF28D7 /* EventTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65428C601BEC073900CF28D7 /* EventTableViewController.storyboard */; };
 		65428C631BEC076B00CF28D7 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65428C621BEC076B00CF28D7 /* EventTableViewController.swift */; };
@@ -48,7 +47,6 @@
 /* Begin PBXFileReference section */
 		21871CC21D02689AB4E5BBA1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		652AC6371C1B73390033F9D2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		652AC6391C1B75350033F9D2 /* fireworks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = fireworks.mp4; sourceTree = "<group>"; };
 		652AC63B1C1B755C0033F9D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65428C601BEC073900CF28D7 /* EventTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventTableViewController.storyboard; sourceTree = "<group>"; };
 		65428C621BEC076B00CF28D7 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			children = (
 				652AC6371C1B73390033F9D2 /* Login.storyboard */,
 				652AC63B1C1B755C0033F9D2 /* LoginViewController.swift */,
-				652AC6391C1B75350033F9D2 /* fireworks.mp4 */,
 			);
 			name = LoginViewController;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				652AC63A1C1B75350033F9D2 /* fireworks.mp4 in Resources */,
 				6554F8ED1BE99D17006B753E /* Podfile in Resources */,
 				65428C611BEC073900CF28D7 /* EventTableViewController.storyboard in Resources */,
 				652AC6381C1B73390033F9D2 /* Login.storyboard in Resources */,

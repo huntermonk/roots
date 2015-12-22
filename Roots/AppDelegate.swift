@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
+import DigitsKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Parse.setApplicationId("NnH1QsekkEG0ZM3sEexTk3Hm0gUcyfOqenf4SHva", clientKey: "Y9Crxp76ZBd8cM2rmFCKeUwwOe51t1K7mr37vN1e")
+        Fabric.with([Crashlytics.self, Digits.self, MoPub.self])
         
+        if PFUser.currentUser() == nil {
+            
+            //window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            window?.rootViewController = LoginViewController.instantiateFromStoryboard()
+            
+            window?.makeKeyAndVisible()
+        }
+
         return true
     }
 
