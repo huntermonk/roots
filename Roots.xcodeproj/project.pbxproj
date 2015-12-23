@@ -26,7 +26,6 @@
 		655FC69A1BE98AFD0013E2CE /* RStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6991BE98AFD0013E2CE /* RStore.swift */; };
 		655FC69D1BE997330013E2CE /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC69C1BE997330013E2CE /* DepartmentTableViewCell.swift */; };
 		65887CD11C290FBF00658354 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65887CD01C290FBF00658354 /* RUser.swift */; };
-		658AD9A11C2A39D80019DDF9 /* testClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658AD9A01C2A39D80019DDF9 /* testClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +72,6 @@
 		655FC6991BE98AFD0013E2CE /* RStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RStore.swift; sourceTree = "<group>"; };
 		655FC69C1BE997330013E2CE /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
 		65887CD01C290FBF00658354 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
-		658AD9A01C2A39D80019DDF9 /* testClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testClass.swift; sourceTree = "<group>"; };
 		66BD7D0E18E5BBF6D782B0FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA8EE3CA5DECD93008263C94 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				652AC6371C1B73390033F9D2 /* Login.storyboard */,
-				658AD9A01C2A39D80019DDF9 /* testClass.swift */,
 				652AC63B1C1B755C0033F9D2 /* LoginViewController.swift */,
 			);
 			name = LoginViewController;
@@ -414,7 +411,6 @@
 			files = (
 				655FC6911BE982230013E2CE /* DepartmentTableViewController.swift in Sources */,
 				655FC6621BE9816D0013E2CE /* AppDelegate.swift in Sources */,
-				658AD9A11C2A39D80019DDF9 /* testClass.swift in Sources */,
 				655FC69D1BE997330013E2CE /* DepartmentTableViewCell.swift in Sources */,
 				65887CD11C290FBF00658354 /* RUser.swift in Sources */,
 				65428C661BEC09C200CF28D7 /* REvent.swift in Sources */,
