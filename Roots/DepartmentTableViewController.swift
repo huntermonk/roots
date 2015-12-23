@@ -23,6 +23,10 @@ class DepartmentTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.navigationController!.navigationBarHidden = true
     }
+    
+    class func instantiateFromStoryboard() -> UINavigationController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UINavigationController
+    }
 
     // MARK: - Table view data source
 
