@@ -25,11 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self, Digits.self, MoPub.self])
         
         if PFUser.currentUser() == nil {
-            
-            //window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            
             window?.rootViewController = LoginViewController.instantiateFromStoryboard()
-            
             window?.makeKeyAndVisible()
         }
 
