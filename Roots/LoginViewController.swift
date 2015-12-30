@@ -44,10 +44,11 @@ class LoginViewController: UIViewController {
         if let info = notification.userInfo, success = info["success"] as? Bool {
             
             if success == true {
-                self.presentViewController(DepartmentTableViewController.instantiateFromStoryboard(), animated: true, completion: nil)
+                presentViewController(DepartmentTableViewController.instantiateFromStoryboard(), animated: true, completion: nil)
             } else if success == false {
                 let alert = UIAlertController(title: nil, message: "There was an error logging in, try again.", preferredStyle: UIAlertControllerStyle.Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(action)
                 presentViewController(alert, animated: true, completion: nil)
             }
             

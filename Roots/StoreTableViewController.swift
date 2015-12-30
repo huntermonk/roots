@@ -94,6 +94,18 @@ class StoreTableViewController: UITableViewController, RStoreDelegate {
         }
         
     }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deployAction = UITableViewRowAction(
+            style: UITableViewRowActionStyle.Normal,
+            title: "Remove"
+            ) {
+                (action, indexPath) in
+                // TODO: Remove store or something
+        }
+        
+        return [deployAction]
+    }
 
 }
 
