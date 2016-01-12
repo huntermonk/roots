@@ -27,6 +27,14 @@ class DepartmentTableViewController: UITableViewController {
     class func instantiateFromStoryboard() -> UINavigationController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UINavigationController
     }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            let controller = EventEntryViewController.instantiateFromStoryboard()
+            controller.title = "EVENT ENTRY"
+            self.navigationController!.pushViewController(controller, animated: true)
+        }
+    }
 
     // MARK: - Table view data source
 

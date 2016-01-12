@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		182F4921FB2B1E9CED98CAB5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21871CC21D02689AB4E5BBA1 /* libPods.a */; };
 		6516C1731C45A5CA003B35E0 /* RSCenteredTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516C1721C45A5CA003B35E0 /* RSCenteredTableViewCell.swift */; };
+		6516C1751C45A7FA003B35E0 /* EventEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516C1741C45A7FA003B35E0 /* EventEntryViewController.swift */; };
+		6516C1771C45A814003B35E0 /* EventEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6516C1761C45A814003B35E0 /* EventEntry.storyboard */; };
 		652AC6381C1B73390033F9D2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652AC6371C1B73390033F9D2 /* Login.storyboard */; };
 		652AC63C1C1B755C0033F9D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652AC63B1C1B755C0033F9D2 /* LoginViewController.swift */; };
 		65428C611BEC073900CF28D7 /* EventTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65428C601BEC073900CF28D7 /* EventTableViewController.storyboard */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		21871CC21D02689AB4E5BBA1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6516C1721C45A5CA003B35E0 /* RSCenteredTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCenteredTableViewCell.swift; sourceTree = "<group>"; };
+		6516C1741C45A7FA003B35E0 /* EventEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEntryViewController.swift; sourceTree = "<group>"; };
+		6516C1761C45A814003B35E0 /* EventEntry.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventEntry.storyboard; sourceTree = "<group>"; };
 		652AC6371C1B73390033F9D2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		652AC63B1C1B755C0033F9D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65428C601BEC073900CF28D7 /* EventTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventTableViewController.storyboard; sourceTree = "<group>"; };
@@ -110,6 +114,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6516C1781C45A8EC003B35E0 /* EventEntry */ = {
+			isa = PBXGroup;
+			children = (
+				6516C1741C45A7FA003B35E0 /* EventEntryViewController.swift */,
+				6516C1761C45A814003B35E0 /* EventEntry.storyboard */,
+			);
+			name = EventEntry;
+			sourceTree = "<group>";
+		};
 		652AC63D1C1B75660033F9D2 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +170,7 @@
 			children = (
 				655FC6611BE9816D0013E2CE /* AppDelegate.swift */,
 				65887CD01C290FBF00658354 /* RUser.swift */,
+				6516C1781C45A8EC003B35E0 /* EventEntry */,
 				6516C1721C45A5CA003B35E0 /* RSCenteredTableViewCell.swift */,
 				655FC69B1BE996E30013E2CE /* DepartmentViewController */,
 				655FC6981BE98AB10013E2CE /* StoreTableViewController */,
@@ -332,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6516C1771C45A814003B35E0 /* EventEntry.storyboard in Resources */,
 				6554F8ED1BE99D17006B753E /* Podfile in Resources */,
 				65428C611BEC073900CF28D7 /* EventTableViewController.storyboard in Resources */,
 				652AC6381C1B73390033F9D2 /* Login.storyboard in Resources */,
@@ -415,6 +430,7 @@
 				65887CD11C290FBF00658354 /* RUser.swift in Sources */,
 				65428C661BEC09C200CF28D7 /* REvent.swift in Sources */,
 				652AC63C1C1B755C0033F9D2 /* LoginViewController.swift in Sources */,
+				6516C1751C45A7FA003B35E0 /* EventEntryViewController.swift in Sources */,
 				655FC69A1BE98AFD0013E2CE /* RStore.swift in Sources */,
 				65428C631BEC076B00CF28D7 /* EventTableViewController.swift in Sources */,
 				655FC6931BE986390013E2CE /* StoreTableViewController.swift in Sources */,
