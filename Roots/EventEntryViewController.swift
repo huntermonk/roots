@@ -10,6 +10,8 @@ import UIKit
 
 class EventEntryViewController: UITableViewController {
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     class func instantiateFromStoryboard() -> EventEntryViewController {
         return UIStoryboard(name: "EventEntry", bundle: nil).instantiateInitialViewController() as! EventEntryViewController
     }
@@ -17,11 +19,16 @@ class EventEntryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.navigationBarHidden = false
+    }
+    
+    func addEvent() {
+        
     }
 
 }
