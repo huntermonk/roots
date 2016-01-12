@@ -7,4 +7,4 @@ pod 'Crashlytics'
 pod 'Digits'
 pod 'TwitterCore'
 
-pod 'mopub-ios-sdk'
+#pod 'mopub-ios-sdk'

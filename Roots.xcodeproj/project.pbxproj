@@ -52,7 +52,7 @@
 		65428C601BEC073900CF28D7 /* EventTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventTableViewController.storyboard; sourceTree = "<group>"; };
 		65428C621BEC076B00CF28D7 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		65428C651BEC09C200CF28D7 /* REvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REvent.swift; sourceTree = "<group>"; };
-		6554F8EC1BE99D17006B753E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6554F8EC1BE99D17006B753E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6554F8EE1BE99DCE006B753E /* Roots-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roots-Bridging-Header.h"; sourceTree = "<group>"; };
 		655FC65E1BE9816D0013E2CE /* Roots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		655FC6611BE9816D0013E2CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -385,7 +385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\n\"${PODS_ROOT}/Fabric/run\" 3b0959a9fd1465c8f1a1e9f91397a34efb70a878 1016ba06ed81c2b4b67451435e1a1334bea679ad8c7608fc2958c36fcf4759fe";
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\n\"${PODS_ROOT}/Fabric/run\" 3b0959a9fd1465c8f1a1e9f91397a34efb70a878 1016ba06ed81c2b4b67451435e1a1334bea679ad8c7608fc2958c36fcf4759fe\n\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		91171C4EDA98BF0688D24E53 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
