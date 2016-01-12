@@ -10,7 +10,7 @@ import UIKit
 
 class DepartmentTableViewController: UITableViewController {
     
-    let departments = ["MENS", "WOMEN", "KIDS", "MISC"]
+    let departments = ["MENS", "WOMENS", "KIDS", "MISC"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,11 @@ class DepartmentTableViewController: UITableViewController {
         default: RStore.sharedInstance.selectedDepartment = Department.Mens.rawValue; break
         }
         
-        self.navigationController!.pushViewController(StoreTableViewController.instantiateFromStoryboard(), animated: true)
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! DepartmentTableViewCell
+            
+        let controller = StoreTableViewController.instantiateFromStoryboard()
+        controller.title = cell.title.text
+        self.navigationController!.pushViewController(controller, animated: true)
     }
 
 }
