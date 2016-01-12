@@ -1,5 +1,5 @@
 //
-//  StoreTableViewCell.swift
+//  RSCenteredTableViewCell.swift
 //  Roots
 //
 //  Created by Hunter Maximillion Monk on 1/12/16.
@@ -8,7 +8,6 @@
 
 import UIKit
 
-class StoreTableViewCell: UITableViewCell {
-
+class RSCenteredTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
 }

@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="bjZ-ei-geY" customClass="StoreTableViewCell" customModule="Roots" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="bjZ-ei-geY" customClass="RSCenteredTableViewCell" customModule="Roots" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bjZ-ei-geY" id="exX-xK-Gup">
@@ -37,7 +37,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="title" destination="2b1-ZR-ZBf" id="gPi-PW-ni7"/>
+                                    <outlet property="title" destination="2b1-ZR-ZBf" id="xFo-rk-U35"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

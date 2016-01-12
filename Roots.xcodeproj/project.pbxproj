@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		182F4921FB2B1E9CED98CAB5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21871CC21D02689AB4E5BBA1 /* libPods.a */; };
-		6516C1711C45A026003B35E0 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516C1701C45A026003B35E0 /* StoreTableViewCell.swift */; };
+		6516C1731C45A5CA003B35E0 /* RSCenteredTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516C1721C45A5CA003B35E0 /* RSCenteredTableViewCell.swift */; };
 		652AC6381C1B73390033F9D2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652AC6371C1B73390033F9D2 /* Login.storyboard */; };
 		652AC63C1C1B755C0033F9D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652AC63B1C1B755C0033F9D2 /* LoginViewController.swift */; };
 		65428C611BEC073900CF28D7 /* EventTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65428C601BEC073900CF28D7 /* EventTableViewController.storyboard */; };
@@ -25,7 +25,6 @@
 		655FC6931BE986390013E2CE /* StoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6921BE986390013E2CE /* StoreTableViewController.swift */; };
 		655FC6971BE987960013E2CE /* StoreTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655FC6961BE987960013E2CE /* StoreTableViewController.storyboard */; };
 		655FC69A1BE98AFD0013E2CE /* RStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC6991BE98AFD0013E2CE /* RStore.swift */; };
-		655FC69D1BE997330013E2CE /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC69C1BE997330013E2CE /* DepartmentTableViewCell.swift */; };
 		65887CD11C290FBF00658354 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65887CD01C290FBF00658354 /* RUser.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,7 @@
 
 /* Begin PBXFileReference section */
 		21871CC21D02689AB4E5BBA1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6516C1701C45A026003B35E0 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
+		6516C1721C45A5CA003B35E0 /* RSCenteredTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCenteredTableViewCell.swift; sourceTree = "<group>"; };
 		652AC6371C1B73390033F9D2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		652AC63B1C1B755C0033F9D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65428C601BEC073900CF28D7 /* EventTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventTableViewController.storyboard; sourceTree = "<group>"; };
@@ -72,7 +71,6 @@
 		655FC6921BE986390013E2CE /* StoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewController.swift; sourceTree = "<group>"; };
 		655FC6961BE987960013E2CE /* StoreTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoreTableViewController.storyboard; sourceTree = "<group>"; };
 		655FC6991BE98AFD0013E2CE /* RStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RStore.swift; sourceTree = "<group>"; };
-		655FC69C1BE997330013E2CE /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
 		65887CD01C290FBF00658354 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		66BD7D0E18E5BBF6D782B0FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FA8EE3CA5DECD93008263C94 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +157,7 @@
 			children = (
 				655FC6611BE9816D0013E2CE /* AppDelegate.swift */,
 				65887CD01C290FBF00658354 /* RUser.swift */,
+				6516C1721C45A5CA003B35E0 /* RSCenteredTableViewCell.swift */,
 				655FC69B1BE996E30013E2CE /* DepartmentViewController */,
 				655FC6981BE98AB10013E2CE /* StoreTableViewController */,
 				65428C641BEC077100CF28D7 /* EventTableViewController */,
@@ -191,7 +190,6 @@
 			children = (
 				655FC6991BE98AFD0013E2CE /* RStore.swift */,
 				655FC6921BE986390013E2CE /* StoreTableViewController.swift */,
-				6516C1701C45A026003B35E0 /* StoreTableViewCell.swift */,
 				655FC6961BE987960013E2CE /* StoreTableViewController.storyboard */,
 			);
 			name = StoreTableViewController;
@@ -201,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				655FC6651BE9816D0013E2CE /* Main.storyboard */,
-				655FC69C1BE997330013E2CE /* DepartmentTableViewCell.swift */,
 				655FC6901BE982230013E2CE /* DepartmentTableViewController.swift */,
 			);
 			name = DepartmentViewController;
@@ -414,14 +411,13 @@
 			files = (
 				655FC6911BE982230013E2CE /* DepartmentTableViewController.swift in Sources */,
 				655FC6621BE9816D0013E2CE /* AppDelegate.swift in Sources */,
-				655FC69D1BE997330013E2CE /* DepartmentTableViewCell.swift in Sources */,
+				6516C1731C45A5CA003B35E0 /* RSCenteredTableViewCell.swift in Sources */,
 				65887CD11C290FBF00658354 /* RUser.swift in Sources */,
 				65428C661BEC09C200CF28D7 /* REvent.swift in Sources */,
 				652AC63C1C1B755C0033F9D2 /* LoginViewController.swift in Sources */,
 				655FC69A1BE98AFD0013E2CE /* RStore.swift in Sources */,
 				65428C631BEC076B00CF28D7 /* EventTableViewController.swift in Sources */,
 				655FC6931BE986390013E2CE /* StoreTableViewController.swift in Sources */,
-				6516C1711C45A026003B35E0 /* StoreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

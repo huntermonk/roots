@@ -45,7 +45,7 @@ class DepartmentTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! DepartmentTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! RSCenteredTableViewCell
         cell.title.text = departments[indexPath.row]
         return cell
     }
@@ -60,7 +60,7 @@ class DepartmentTableViewController: UITableViewController {
         default: RStore.sharedInstance.selectedDepartment = Department.Mens.rawValue; break
         }
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! DepartmentTableViewCell
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! RSCenteredTableViewCell
             
         let controller = StoreTableViewController.instantiateFromStoryboard()
         controller.title = cell.title.text
