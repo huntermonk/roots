@@ -26,6 +26,7 @@ class REvent {
         query.findObjectsInBackgroundWithBlock {
             (results, error) -> Void in
             if results != nil {
+                self.events = []
                 for result in results! {
                     
                     let event = ["title" : result["title"], "description" : result["description"], "dateStart" : result["dateStart"], "dateEnd" : result["dateEnd"]]

@@ -53,6 +53,8 @@ class EventTableViewController: UITableViewController, REventDelegate {
         
         if cellHeight < 66 { cellHeight = 66 }
         
+        if cellHeight > 198 { cellHeight = 198 }
+        
         return cellHeight
         
     }
