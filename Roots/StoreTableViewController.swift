@@ -76,16 +76,16 @@ class StoreTableViewController: UITableViewController, RStoreDelegate {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! StoreTableViewCell
         
-        cell.textLabel?.text = stores[indexPath.row].uppercaseString
+        cell.title.text = stores[indexPath.row].uppercaseString
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-            RStore.sharedInstance.initiateRetrieveEvents(cell.textLabel!.text!)
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? StoreTableViewCell {
+            RStore.sharedInstance.initiateRetrieveEvents(cell.title.text!)
             
             let controller = EventTableViewController.instantiateFromStoryboard()
             controller.title = cell.textLabel?.text
