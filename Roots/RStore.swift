@@ -132,7 +132,9 @@ class RStore {
     }
     
     func parseObject(withName:String) -> PFObject? {
+        
         for item in parseStoreResults {
+            print("item name\(item)")
             if let name = item["name"] as? String where name == withName {
                 return item
             }

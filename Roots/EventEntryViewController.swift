@@ -30,7 +30,6 @@ class EventEntryViewController: UITableViewController {
     
     @IBOutlet weak var endsCell: UITableViewCell!
     
-    
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     @IBOutlet weak var titleField: UITextField!
@@ -53,6 +52,7 @@ class EventEntryViewController: UITableViewController {
         }
         
     }
+    
     class func instantiateFromStoryboard() -> EventEntryViewController {
         return UIStoryboard(name: "EventEntry", bundle: nil).instantiateInitialViewController() as! EventEntryViewController
     }
@@ -63,7 +63,7 @@ class EventEntryViewController: UITableViewController {
     }
     
     func storeCellTapped() {
-        let controller = StoreSelectorTableViewController()
+        let controller = StoreSelectorTableViewController.instantiateFromStoryboard()
         controller.delegate = self
         presentViewController(controller, animated: true, completion: nil)
     }
@@ -88,9 +88,6 @@ class EventEntryViewController: UITableViewController {
                // self.tableView.reloadData()
         }*/
         
-        
-        
-        //self.tableView.reloadData()
     }
     
     func endCellTapped() {
@@ -146,8 +143,6 @@ class EventEntryViewController: UITableViewController {
         } else if identifier == CellNames.ends {
             endCellTapped()
         }
-        
-        print("selected cell named \(cell?.reuseIdentifier) in section \(indexPath.section) and row \(indexPath.row)")
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -173,14 +168,13 @@ class EventEntryViewController: UITableViewController {
         return tableView.rowHeight
         
     }
-    
 
 }
 
 extension EventEntryViewController: StoreSelectorDelegate {
     func setSelectedStore(store: PFObject) {
         
-        if let name = objectToAdd["name"] as? String {
+        if let name = store["name"] as? String {
             storeCell.detailTextLabel?.text = name
         }
         
