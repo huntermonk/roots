@@ -8,18 +8,53 @@
 
 import UIKit
 
+private struct CellNames {
+    static let store = "store"
+    static let allDay = "allDay"
+    static let starts = "starts"
+    static let ends = "ends"
+    static let title = "title"
+    static let description = "description"
+    static let startsPicker = "startsPicker"
+    static let endsPicker = "endsPicker"
+    
+    static let startsPickerPath = NSIndexPath(forRow: 2, inSection: 2)
+    static let endsPickerPath = NSIndexPath(forRow: 4, inSection: 2)
+}
+
 class EventEntryViewController: UITableViewController {
+    
+    @IBOutlet weak var storeCell: UITableViewCell!
+    
+    @IBOutlet weak var startsCell: UITableViewCell!
+    
+    @IBOutlet weak var endsCell: UITableViewCell!
+    
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var descriptionField: UITextField!
+    
+    @IBOutlet weak var startsPicker: UIDatePicker!
+    @IBOutlet weak var endsPicker: UIDatePicker!
+    
+    var startsPickerActive = false
+    var endsPickerActive = false
+    
+    var objectToAdd = PFObject(className: "event")
+    
+    @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+        
+        objectToAdd.saveInBackgroundWithBlock { (success, error) -> Void in
+            if error != nil {
+                UIAlertController().displayMessage(error!.localizedDescription)
+            }
+        }
+        
+    }
     class func instantiateFromStoryboard() -> EventEntryViewController {
         return UIStoryboard(name: "EventEntry", bundle: nil).instantiateInitialViewController() as! EventEntryViewController
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -27,10 +62,152 @@ class EventEntryViewController: UITableViewController {
         self.navigationController!.navigationBarHidden = false
     }
     
-    func addEvent() {
+    func storeCellTapped() {
+        let controller = StoreSelectorTableViewController()
+        controller.delegate = self
+        presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func startCellTapped() {
+        startsPickerActive = !startsPickerActive
+        tableView.reloadData()
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        
+        let date = formatter.stringFromDate(startsPicker.date)
+        
+        startsCell.detailTextLabel?.text = date
+        
+        objectToAdd["starts"] = startsPicker.date
+        
+        /*
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.tableView.reloadRowsAtIndexPaths([CellNames.startsPickerPath], withRowAnimation: UITableViewRowAnimation.Top)
+            }) { (success) -> Void in
+               // self.tableView.reloadData()
+        }*/
+        
+        
+        
+        //self.tableView.reloadData()
+    }
+    
+    func endCellTapped() {
+        endsPickerActive = !endsPickerActive
+        tableView.reloadData()
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        
+        let date = formatter.stringFromDate(endsPicker.date)
+        
+        endsCell.detailTextLabel?.text = date
+        
+        objectToAdd["ends"] = endsPicker.date
+    }
+    
+    func enableAddButton() {
+        
+        addButton.enabled = false
+        
+        guard let _ = objectToAdd["store"] else {
+            return
+        }
+        guard let _ = objectToAdd["title"] else {
+            return
+        }
+        guard let _ = objectToAdd["description"] else {
+            return
+        }
+        guard let _ = objectToAdd["description"] else {
+            return
+        }
+        guard let _ = objectToAdd["starts"] else {
+            return
+        }
+        guard let _ = objectToAdd["ends"] else {
+            return
+        }
+        
+        addButton.enabled = true
         
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        let identifier = cell?.reuseIdentifier
+        
+        if identifier == CellNames.store {
+            storeCellTapped()
+        } else if identifier == CellNames.starts {
+            startCellTapped()
+        } else if identifier == CellNames.ends {
+            endCellTapped()
+        }
+        
+        print("selected cell named \(cell?.reuseIdentifier) in section \(indexPath.section) and row \(indexPath.row)")
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if indexPath == CellNames.startsPickerPath {
+            
+            if startsPickerActive == true {
+                return 216
+            } else {
+                return 0
+            }
+            
+        }
+        
+        if indexPath == CellNames.endsPickerPath {
+            if endsPickerActive == true {
+                return 216
+            } else {
+                return 0
+            }
+        }
+        
+        return tableView.rowHeight
+        
+    }
+    
 
+}
+
+extension EventEntryViewController: StoreSelectorDelegate {
+    func setSelectedStore(store: PFObject) {
+        
+        if let name = objectToAdd["name"] as? String {
+            storeCell.detailTextLabel?.text = name
+        }
+        
+        objectToAdd["store"] = store
+        
+        enableAddButton()
+    }
+}
+
+extension EventEntryViewController: UITextFieldDelegate {
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        print("shouldChangeCharacters \(string)")
+        
+        if textField == titleField {
+            objectToAdd["title"] = textField.text!
+        }
+        
+        if textField == descriptionField {
+            objectToAdd["description"] = textField.text!
+        }
+        
+        enableAddButton()
+        
+        return false
+    }
 }
 /*
 extension EventEntryViewController {

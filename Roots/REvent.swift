@@ -29,7 +29,7 @@ class REvent {
                 self.events = []
                 for result in results! {
                     
-                    let event = ["title" : result["title"], "description" : result["description"], "dateStart" : result["dateStart"], "dateEnd" : result["dateEnd"]]
+                    let event = ["title" : result["title"], "description" : result["description"], "starts" : result["starts"], "ends" : result["ends"]]
                     self.events.append(event)
 
                 }
