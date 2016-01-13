@@ -95,6 +95,52 @@ class RStore {
         }
     }
     
+    
+    // TODO: Turn this into an extension for [<T>]!
+    func allStores() -> [String] {
+        
+        var returnArray = [String]()
+        
+        returnArray = mensStores
+        
+        for item in womensStores {
+            if returnArray.contains(item) {
+                continue
+            } else {
+                returnArray.append(item)
+            }
+        }
+        
+        for item in kidsStores {
+            if returnArray.contains(item) {
+                continue
+            } else {
+                returnArray.append(item)
+            }
+        }
+        
+        for item in miscStores {
+            if returnArray.contains(item) {
+                continue
+            } else {
+                returnArray.append(item)
+            }
+        }
+        
+        return returnArray
+        
+    }
+    
+    func parseObject(withName:String) -> PFObject? {
+        for item in parseStoreResults {
+            if let name = item["name"] as? String where name == withName {
+                return item
+            }
+        }
+        
+        return nil
+    }
+    
     // MARK: - Event Methods
     
     func initiateRetrieveEvents(storeName:String) {
