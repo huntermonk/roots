@@ -41,13 +41,16 @@ class EventEntryViewController: UITableViewController {
     var startsPickerActive = false
     var endsPickerActive = false
     
-    var objectToAdd = PFObject(className: "event")
+    var eventToAdd = PFObject(className: "event")
     
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
         
-        objectToAdd.saveInBackgroundWithBlock { (success, error) -> Void in
+        eventToAdd.saveInBackgroundWithBlock { (success, error) -> Void in
             if error != nil {
                 UIAlertController().displayMessage(error!.localizedDescription)
+            } else {
+                let title = self.eventToAdd["title"] as! String
+                UIAlertController().displayMessage("Added \(title)")
             }
         }
         
@@ -73,13 +76,15 @@ class EventEntryViewController: UITableViewController {
         tableView.reloadData()
         
         let formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
+        formatter.dateStyle = .MediumStyle
         
         let date = formatter.stringFromDate(startsPicker.date)
         
         startsCell.detailTextLabel?.text = date
         
-        objectToAdd["starts"] = startsPicker.date
+        eventToAdd["starts"] = startsPicker.date
+        
+        enableAddButton()
         
         /*
         UIView.animateWithDuration(0.4, animations: { () -> Void in
@@ -95,35 +100,35 @@ class EventEntryViewController: UITableViewController {
         tableView.reloadData()
         
         let formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
+        formatter.dateStyle = .MediumStyle
         
         let date = formatter.stringFromDate(endsPicker.date)
         
         endsCell.detailTextLabel?.text = date
         
-        objectToAdd["ends"] = endsPicker.date
+        eventToAdd["ends"] = endsPicker.date
+        
+        enableAddButton()
     }
     
     func enableAddButton() {
         
         addButton.enabled = false
         
-        guard let _ = objectToAdd["store"] else {
+        guard let _ = eventToAdd["store"] else {
             return
         }
-        guard let _ = objectToAdd["title"] else {
+        guard let _ = eventToAdd["title"] else {
             return
         }
-        guard let _ = objectToAdd["description"] else {
+        guard let _ = eventToAdd["description"] else {
             return
         }
-        guard let _ = objectToAdd["description"] else {
+
+        guard let _ = eventToAdd["starts"] else {
             return
         }
-        guard let _ = objectToAdd["starts"] else {
-            return
-        }
-        guard let _ = objectToAdd["ends"] else {
+        guard let _ = eventToAdd["ends"] else {
             return
         }
         
@@ -178,7 +183,7 @@ extension EventEntryViewController: StoreSelectorDelegate {
             storeCell.detailTextLabel?.text = name
         }
         
-        objectToAdd["store"] = store
+        eventToAdd["store"] = store
         
         enableAddButton()
     }
@@ -187,62 +192,17 @@ extension EventEntryViewController: StoreSelectorDelegate {
 extension EventEntryViewController: UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        
-        print("shouldChangeCharacters \(string)")
-        
+                
         if textField == titleField {
-            objectToAdd["title"] = textField.text!
+            eventToAdd["title"] = textField.text!
         }
         
         if textField == descriptionField {
-            objectToAdd["description"] = textField.text!
+            eventToAdd["description"] = textField.text!
         }
         
         enableAddButton()
         
-        return false
+        return true
     }
 }
-/*
-extension EventEntryViewController {
-    
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        /*
-        switch indexPath.row {
-        case 0: RStore.sharedInstance.selectedDepartment = Department.Mens.rawValue; break
-        case 1: RStore.sharedInstance.selectedDepartment = Department.Womens.rawValue; break
-        case 2: RStore.sharedInstance.selectedDepartment = Department.Kids.rawValue; break
-        case 3: RStore.sharedInstance.selectedDepartment = Department.Misc.rawValue; break
-        default: RStore.sharedInstance.selectedDepartment = Department.Mens.rawValue; break
-        }
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! RSCenteredTableViewCell
-        
-        let controller = StoreTableViewController.instantiateFromStoryboard()
-        controller.title = cell.title.text
-        self.navigationController!.pushViewController(controller, animated: true)*/
-    }
-    
-    
-}
-
-extension EventEntryViewController {
-    
-    
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-}*/

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class DepartmentTableViewController: UITableViewController {
     
@@ -17,12 +19,21 @@ class DepartmentTableViewController: UITableViewController {
         clearsSelectionOnViewWillAppear = true
         tableView.reloadData()
         RStore.sharedInstance.retrieveStores()
+
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setActive(true)
+        } catch {
+            print("active error")
+        }
         
-        let button = UIButton(frame: CGRectMake(0,0,100,100))
-        button.backgroundColor = UIColor.redColor()
-        let recognizer = UITapGestureRecognizer(target: self, action: "addEvent")
-        button.addGestureRecognizer(recognizer)
-        view.addSubview(button)
+        session.addObserver(self, forKeyPath: "outputVolume", options: NSKeyValueObservingOptions.New, context: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "outputVolume" {
+            addEvent()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
