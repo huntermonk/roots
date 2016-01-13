@@ -43,7 +43,17 @@ class EventEntryViewController: UITableViewController {
     
     var eventToAdd = PFObject(className: "event")
     
+    var eventStore:PFObject?
+    
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+        
+        eventToAdd["store"] = eventStore
+        
+        eventToAdd["title"] = titleField.text
+        eventToAdd["description"] = descriptionField.text
+        
+        eventToAdd["starts"] = startsPicker.date
+        eventToAdd["ends"] = endsPicker.date
         
         eventToAdd.saveInBackgroundWithBlock { (success, error) -> Void in
             if error != nil {
@@ -51,6 +61,9 @@ class EventEntryViewController: UITableViewController {
             } else {
                 let title = self.eventToAdd["title"] as! String
                 UIAlertController().displayMessage("Added \(title)")
+                
+                //___ Reset the object
+                self.eventToAdd = PFObject(className: "event")
             }
         }
         
@@ -115,22 +128,23 @@ class EventEntryViewController: UITableViewController {
         
         addButton.enabled = false
         
-        guard let _ = eventToAdd["store"] else {
+        guard let _ = eventStore else {
             return
         }
-        guard let _ = eventToAdd["title"] else {
+        guard let _ = titleField.text else {
             return
         }
-        guard let _ = eventToAdd["description"] else {
+        guard let _ = descriptionField.text else {
             return
         }
-
-        guard let _ = eventToAdd["starts"] else {
+        
+        /*
+        guard let _ = startsPicker.date else {
             return
         }
-        guard let _ = eventToAdd["ends"] else {
+        guard let _ = endsPicker.date else {
             return
-        }
+        }*/
         
         addButton.enabled = true
         
@@ -184,6 +198,8 @@ extension EventEntryViewController: StoreSelectorDelegate {
         }
         
         eventToAdd["store"] = store
+        
+        eventStore = store
         
         enableAddButton()
     }
