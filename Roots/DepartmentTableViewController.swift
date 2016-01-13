@@ -17,6 +17,12 @@ class DepartmentTableViewController: UITableViewController {
         clearsSelectionOnViewWillAppear = true
         tableView.reloadData()
         RStore.sharedInstance.retrieveStores()
+        
+        let button = UIButton(frame: CGRectMake(0,0,100,100))
+        button.backgroundColor = UIColor.redColor()
+        let recognizer = UITapGestureRecognizer(target: self, action: "addEvent")
+        button.addGestureRecognizer(recognizer)
+        view.addSubview(button)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -28,12 +34,10 @@ class DepartmentTableViewController: UITableViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UINavigationController
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
-            let controller = EventEntryViewController.instantiateFromStoryboard()
-            controller.title = "EVENT ENTRY"
-            self.navigationController!.pushViewController(controller, animated: true)
-        }
+    func addEvent() {
+        let controller = EventEntryViewController.instantiateFromStoryboard()
+        controller.title = "EVENT ENTRY"
+        self.navigationController!.pushViewController(controller, animated: true)
     }
 
     // MARK: - Table view data source
