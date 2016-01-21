@@ -138,14 +138,6 @@ class EventEntryViewController: UITableViewController {
             return
         }
         
-        /*
-        guard let _ = startsPicker.date else {
-            return
-        }
-        guard let _ = endsPicker.date else {
-            return
-        }*/
-        
         addButton.enabled = true
         
     }
