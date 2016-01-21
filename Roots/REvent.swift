@@ -10,7 +10,6 @@ import Foundation
 
 protocol REventDelegate{
     func displayEvents(events:[Dictionary<String,AnyObject>])
-    //func setNavigationTitle(title:String)
 }
 
 class REvent {
