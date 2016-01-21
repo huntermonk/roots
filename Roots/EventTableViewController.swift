@@ -47,7 +47,7 @@ class EventTableViewController: UITableViewController, REventDelegate {
         if navigationController?.navigationBarHidden == true {
             cellHeight = tableView.frame.height / CGFloat(events.count)
         } else {
-            let navigationHeight = self.navigationController!.navigationBar.frame.height
+            let navigationHeight = navigationController!.navigationBar.frame.height
             cellHeight = (tableView.frame.height - navigationHeight) / CGFloat(events.count)
         }
         
@@ -62,7 +62,6 @@ class EventTableViewController: UITableViewController, REventDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
